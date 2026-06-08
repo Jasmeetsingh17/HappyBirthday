@@ -77,6 +77,66 @@ function launchConfetti(x, y) {
     setTimeout(() => burstConfetti(x, y, 30, 180), 300);
 }
 
+function createHeartPiece(x, y) {
+    const hearts = ['❤️', '💖', '💘', '💝', '💕', '💗'];
+    const heart = document.createElement('div');
+    heart.className = 'heart-piece';
+    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+    const size = Math.random() * 26 + 22;
+    heart.style.left = `${x}px`;
+    heart.style.top = `${y}px`;
+    heart.style.fontSize = `${size}px`;
+    heart.style.opacity = '1';
+    document.body.appendChild(heart);
+
+    const directionX = (Math.random() - 0.5) * 2;
+    const directionY = (Math.random() - 0.5) * 2;
+    const travel = Math.random() * 420 + 220;
+
+    gsap.to(heart, {
+        x: directionX * travel,
+        y: directionY * travel,
+        rotation: (Math.random() - 0.5) * 360,
+        opacity: 0,
+        scale: Math.random() * 0.7 + 1,
+        duration: 1.6 + Math.random() * 0.8,
+        ease: 'power2.out',
+        onComplete: () => heart.remove()
+    });
+}
+
+function burstHearts(x, y, count = 40, spread = 420) {
+    for (let i = 0; i < count; i++) {
+        const offsetX = (Math.random() - 0.5) * spread;
+        const offsetY = (Math.random() - 0.5) * (spread / 2);
+        createHeartPiece(x + offsetX, y + offsetY);
+    }
+}
+
+function burstTimerUnlock() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const points = [
+        { x: width * 0.1, y: height * 0.25 },
+        { x: width * 0.9, y: height * 0.25 },
+        { x: width * 0.2, y: height * 0.75 },
+        { x: width * 0.8, y: height * 0.75 },
+        { x: width * 0.5, y: height * 0.5 }
+    ];
+
+    points.forEach(point => {
+        launchConfetti(point.x, point.y);
+        burstHearts(point.x, point.y, 28, 520);
+    });
+
+    document.getElementById('timerOverlay').style.transition = 'opacity 0.8s ease';
+    document.getElementById('timerOverlay').style.opacity = '0';
+    setTimeout(() => {
+        document.getElementById('timerOverlay').classList.add('hidden');
+        document.getElementById('timerOverlay').style.opacity = '';
+    }, 800);
+}
+
 // Initialize animations
 window.addEventListener('load', () => {
     // Title animation
@@ -150,3 +210,65 @@ window.addEventListener('load', () => {
             });
         });
     });
+
+// Countdown Timer Logic
+function checkAndInitializeTimer() {
+    const unlockDate = new Date('2026-06-09T00:40:00').getTime();
+    const now = new Date().getTime();
+    const timerOverlay = document.getElementById('timerOverlay');
+    const mainContent = document.getElementById('mainContent');
+
+    if (now < unlockDate) {
+        // Timer should be visible
+        timerOverlay.classList.remove('hidden');
+        mainContent.style.display = 'none';
+        startCountdown(unlockDate);
+    } else {
+        // Timer should be hidden
+        timerOverlay.classList.add('hidden');
+        mainContent.style.display = 'block';
+    }
+}
+
+function updateCountdown(unlockDate) {
+    const now = new Date().getTime();
+    const distance = unlockDate - now;
+
+    // If the countdown is finished, hide timer and show content
+    if (distance < 0) {
+        burstTimerUnlock();
+        document.getElementById('mainContent').style.display = 'block';
+        clearInterval(window.countdownInterval);
+        return;
+    }
+
+    // Calculate time units
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Update display
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+}
+
+function startCountdown(unlockDate) {
+    // Update immediately on start
+    updateCountdown(unlockDate);
+
+    // Clear any existing interval to prevent duplicates
+    if (window.countdownInterval) {
+        clearInterval(window.countdownInterval);
+    }
+
+    // Update every second
+    window.countdownInterval = setInterval(() => updateCountdown(unlockDate), 1000);
+}
+
+// Initialize timer when page loads
+window.addEventListener('load', () => {
+    setTimeout(checkAndInitializeTimer, 100);
+}, { once: true });

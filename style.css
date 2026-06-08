@@ -82,6 +82,16 @@ h1 {
     will-change: transform, opacity;
 }
 
+.heart-piece {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform, opacity;
+    transform-origin: center;
+    color: #ff4da6;
+    text-shadow: 0 0 10px rgba(255, 0, 128, 0.35);
+}
+
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -92,4 +102,126 @@ h1 {
     h1 { font-size: 2rem; }
     .greeting { font-size: 1.2rem; }
     .cta-button { font-size: 1rem; }
+}
+
+/* Timer Overlay Styles */
+.timer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #fee9f7, #e8f5fe, #fef2e8, #f0ffe8);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 2rem;
+}
+
+.timer-overlay.hidden {
+    display: none;
+}
+
+.timer-content {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    width: 100%;
+}
+
+.timer-content h2 {
+    font-size: 2.5rem;
+    color: #ff69b4;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+}
+
+.timer-content > p {
+    font-size: 1.3rem;
+    color: #8a2be2;
+    margin-bottom: 2rem;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.timer-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #ff69b4, #ff99cc);
+    padding: 1.5rem 1rem;
+    border-radius: 15px;
+    min-width: 80px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.timer-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timer-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timer-message {
+    font-size: 1.1rem;
+    color: #ff69b4;
+    font-weight: bold;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+@media (max-width: 768px) {
+    .timer-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .timer-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .timer-content > p {
+        font-size: 1rem;
+    }
+
+    .countdown-timer {
+        gap: 1rem;
+    }
+
+    .timer-unit {
+        min-width: 70px;
+        padding: 1rem 0.8rem;
+    }
+
+    .timer-value {
+        font-size: 1.5rem;
+    }
+
+    .timer-label {
+        font-size: 0.75rem;
+    }
 }

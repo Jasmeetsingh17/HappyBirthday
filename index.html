@@ -14,7 +14,35 @@
     
     <div class="cursor"></div>
     <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
-    <div class="container">
+    
+    <!-- Timer Overlay -->
+    <div id="timerOverlay" class="timer-overlay hidden">
+        <div class="timer-content">
+            <h2>⏰ Coming Soon! ⏰</h2>
+            <p>Your surprise unlocks on June 10th!</p>
+            <div class="countdown-timer">
+                <div class="timer-unit">
+                    <span id="days" class="timer-value">0</span>
+                    <span class="timer-label">Days</span>
+                </div>
+                <div class="timer-unit">
+                    <span id="hours" class="timer-value">0</span>
+                    <span class="timer-label">Hours</span>
+                </div>
+                <div class="timer-unit">
+                    <span id="minutes" class="timer-value">0</span>
+                    <span class="timer-label">Minutes</span>
+                </div>
+                <div class="timer-unit">
+                    <span id="seconds" class="timer-value">0</span>
+                    <span class="timer-label">Seconds</span>
+                </div>
+            </div>
+            <p class="timer-message">✨ Get ready for something special! ✨</p>
+        </div>
+    </div>
+    
+    <div class="container" id="mainContent">
         <h1>Happy Birthday Sis❤️! 🎉</h1>
         <div class="greeting"></div>
         <button class="cta-button">Tap to open your surprise 💕</button>
