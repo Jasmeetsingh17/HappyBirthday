@@ -213,7 +213,7 @@ window.addEventListener('load', () => {
 
 // Countdown Timer Logic
 function checkAndInitializeTimer() {
-    const unlockDate = new Date('2026-06-09T00:40:00').getTime();
+    const unlockDate = new Date('2026-06-09T00:37:00').getTime();
     const now = new Date().getTime();
     const timerOverlay = document.getElementById('timerOverlay');
     const mainContent = document.getElementById('mainContent');
