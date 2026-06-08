@@ -74,6 +74,14 @@ h1 {
     opacity: 0;
 }
 
+.confetti-piece {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    will-change: transform, opacity;
+}
+
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }

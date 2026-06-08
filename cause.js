@@ -1,22 +1,22 @@
  // Reasons database
  const reasons = [
     { 
-        text: "To my amazing sister: your kindness makes every day brighter. I feel so blessed to have you. 💖", 
+        text: "To my amazing sis❤️, thank you for filling our lives with happiness, laughter, and so much love. We are lucky to have you. 💖", 
         emoji: "🌟",
         gif: "gif1.gif"
     },
     { 
-        text: "Your laughter, your strength, and your love mean so much. May your birthday be as beautiful as you are. 🌸 ", 
+        text: "No matter what life brings, never forget that you are deeply loved and never alone. We will always be here for you, cheering for you, supporting you, and standing by your side. 🤗❤️ ", 
         emoji: "💗",
         gif: "gif2.gif"
     },
     { 
-        text: "Wishing you endless success, sweet memories, and everything your heart has wished for. ✨", 
+        text: "May this year bring you success in everything you do, happiness in every moment, and countless reasons to smile. ✨💕", 
         emoji: "💕",
         gif: "gif1.gif"
     },
     { 
-        text: "Sister, you make every day brighter. Here’s to a year filled with fun, love, and new memories. 🥳 ", 
+        text: "Happy Birthday, Sis❤️! May all your dreams come true, your chai never get cold, and your life always be filled with love, laughter, and joy. ☕🥳💖", 
         emoji: "🌟",
         gif: "gif2.gif"
     }

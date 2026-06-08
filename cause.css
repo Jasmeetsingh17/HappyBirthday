@@ -123,6 +123,61 @@ h1 {
     text-align: center;
 }
 
+.golgappe-section {
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 200, 150, 0.15), rgba(255, 182, 193, 0.15));
+    border-radius: 25px;
+    border: 2px solid rgba(255, 105, 180, 0.2);
+    max-width: 800px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.golgappe-section h2 {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 2.2rem;
+    color: #ff4da6;
+    margin-bottom: 1.5rem;
+}
+
+.golgappe-container {
+    margin: 1.5rem 0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(255, 105, 180, 0.12);
+}
+
+.funny-messages {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.funny-messages p {
+    font-size: 1.1rem;
+    color: #4a3166;
+    margin: 1rem 0;
+    line-height: 1.6;
+    font-weight: 500;
+    animation: fadeInMsg 0.8s ease forwards;
+    opacity: 0;
+}
+
+.msg-1 { animation-delay: 0.2s; }
+.msg-2 { animation-delay: 0.4s; }
+.msg-3 { animation-delay: 0.6s; }
+.msg-4 { animation-delay: 0.8s; }
+
+@keyframes fadeInMsg {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .ending-text {
     font-family: 'Bubblegum Sans', cursive;
     font-size: 2rem;

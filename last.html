@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Beautiful Memories ✨</title>
+    <link rel="stylesheet" href="sakura.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500;600&display=swap');
 
@@ -350,6 +351,61 @@
             border-radius: 6px;
         }
 
+        /* Food Celebration Section */
+        .food-celebration {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 200, 150, 0.15), rgba(255, 182, 193, 0.15));
+            border-radius: 28px;
+            border: 2px solid rgba(255, 105, 180, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 3;
+        }
+
+        .food-celebration h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #ff69b4;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            animation: fadeInScale 1s ease;
+        }
+
+        .food-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .food-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-item h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.6rem;
+            color: #ff4da6;
+            margin-bottom: 0.5rem;
+        }
+
+        .food-item p {
+            font-size: 1.05rem;
+            color: #6f486f;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .food-item .tenor-gif-embed {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.15);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .welcome h1 {
@@ -368,6 +424,9 @@
 </head>
 
 <body>
+    <!-- Sakura Petal Animation Canvas -->
+    <canvas id="sakura-canvas"></canvas>
+    
     <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
     <script>
         const audio = document.getElementById('bgMusic');
@@ -388,7 +447,7 @@
     </div>
 
     <section class="welcome">
-        <h1>Happy Birthday Sister! 🎈</h1>
+        <h1>Happy Birthday Sis❤️! 🎈</h1>
     </section>
 
     <div class="memory-container">
@@ -401,14 +460,62 @@
 
     <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
-    <section class="final-message">
-        <h2>To My Wonderful Sister</h2>
-        <p>Every laugh, every secret, and every shared memory with you is my favorite. I am forever grateful for our bond. 💫</p>
-        <p>From laughter to silly moments, we all make the best memories with you. 😊💕</p>
-        <p>We cherish every moment we share. You are amazing and loved by all. 🌸💖</p>
-        <p>On your special day, I wish you more love, more joy, and every dream coming true. You deserve the world. ✨</p>
-        <a href="index.html" class="goodbye-btn">See You Soon, Birthday Girl 💝</a>
+    <section class="food-celebration">
+        <h2>Your Food Obsessions 😂🍽️</h2>
+        
+        <div class="food-item">
+            <h3>🥟 Pani Puri (Golgappe)</h3>
+            <p>Your true soulmate! One plate is just a warm-up round for you 😂</p>
+            <div class="tenor-gif-embed" data-postid="136613936079968245" data-share-method="host" data-aspect-ratio="0.566265" data-width="100%"><a href="https://tenor.com/view/pani-puri-food-tasty-mouth-watering-yummy-gif-136613936079968245">Pani Puri Food GIF</a>from <a href="https://tenor.com/search/pani+puri-gifs">Pani Puri GIFs</a></div>
+        </div>
+
+        <div class="food-item">
+            <h3>🥟 Momos</h3>
+            <p>Your comfort food! Steamed, fried, spicy - you love them all! 🤤</p>
+            <div class="tenor-gif-embed" data-postid="13938385" data-share-method="host" data-aspect-ratio="1.23333" data-width="100%"><a href="https://tenor.com/view/hungry-eating-cat-gif-13938385">Hungry Eating Sticker</a>from <a href="https://tenor.com/search/hungry-stickers">Hungry Stickers</a></div>
+        </div>
+
+        <div class="food-item">
+            <h3>🍟 French Fries</h3>
+            <p>Fries without peri peri? That's illegal in your world 🌶️🍟😂</p>
+            <div class="tenor-gif-embed" data-postid="15201472" data-share-method="host" data-aspect-ratio="1.16788" data-width="100%"><a href="https://tenor.com/view/nom-yummy-cute-french-fries-hungry-gif-15201472">Nom Yummy Sticker</a>from <a href="https://tenor.com/search/nom-stickers">Nom Stickers</a></div>
+        </div>
+
+        <div class="food-item">
+            <h3>🥨 Chips & Snacks</h3>
+            <p>Every snack packet hears "I'll eat just one" and knows it's a lie 🤣😋</p>
+            <div class="tenor-gif-embed" data-postid="9903569942788172227" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/chips-snack-snacks-calories-food-gif-9903569942788172227">Chips Snack Sticker</a>from <a href="https://tenor.com/search/chips-stickers">Chips Stickers</a></div>
+        </div>
+
+        <div class="food-item">
+            <h3>🍕 Pizza</h3>
+            <p>Extra paprika, extra drama, extra happiness — exactly how you like your pizza 🍕🌶️😂</p>
+            <div class="tenor-gif-embed" data-postid="19213914" data-share-method="host" data-aspect-ratio="1.22137" data-width="100%"><a href="https://tenor.com/view/pizza-pepperoni-pizza-pizza-day-food-pepperoni-pizza-day-gif-19213914">Pizza Pepperoni Pizza GIF</a>from <a href="https://tenor.com/search/pizza-gifs">Pizza GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>        </div>
     </section>
+
+    <section class="final-message">
+    <h2>To My Wonderful Sis ❤️</h2>
+
+
+        <p>You are the reason so many of our favorite memories even exist today." ❤️✨</p>
+
+        <p>From playing silly games all night long, cooking random dishes that sometimes turned out great (and sometimes not 😅), to our countless fights and arguments — every moment became a memory worth keeping. 💫</p>
+
+        <p>Your love for chai deserves a special mention. Some of our best conversations happened at 3 AM with a cup of chai in hand, talking about absolutely everything and nothing at the same time ☕🌙</p>
+
+        <p>And who could forget our movie nights that somehow lasted till sunrise? We would make plans to wake up early and go play badminton in the park, but let's be honest... most of those plans never actually happened 😂🏸</p>
+
+        <p>Thank you for all the laughter, chaos, memories, and love you bring into our lives. Life would be much quieter, much less fun, and definitely much more boring without you. ❤️</p>
+
+        <p>On your special day, I wish you endless happiness, success, lots of chai, delicious food, and all the love in the world. You truly deserve it. ✨💖</p>
+
+        <a href="index.html" class="goodbye-btn">See You Soon, Birthday Girl 💝</a>
+
+
+    </section>
+
+    
+    <script src="sakura.js"></script>
 </body>
 
 </html>
